@@ -1,12 +1,10 @@
 package com.mall.customer.controller;
 
 import com.mall.customer.base.CustInfo;
+import com.mall.customer.base.Page;
 import com.mall.customer.service.CustomerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -23,5 +21,10 @@ public class CustomerController {
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public List<CustInfo> index() {
         return customerInfoService.getList(new CustInfo());
+    }
+
+    @RequestMapping(value = "/page",method = RequestMethod.POST)
+    public Page<CustInfo> page(@ModelAttribute Page<CustInfo> page) {
+        return customerInfoService.getPageList(page);
     }
 }
