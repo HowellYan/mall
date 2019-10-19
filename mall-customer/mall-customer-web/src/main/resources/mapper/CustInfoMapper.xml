@@ -8,4 +8,44 @@
             and login_account = #{custInfo.loginAccount}
         </if>
     </select>
+
+    <select id="test2" resultType="com.mall.customer.base.CustInfoGoodsAddr">
+        SELECT
+        a.login_account,
+        a.login_pw,
+        a.pay_pw,
+        a.identity,
+        a.create_time,
+        a.update_time,
+        a.nickname,
+        a.realname,
+        a.sex,
+        a.birthday,
+        a.province,
+        a.city,
+        a.district,
+        a.address,
+        a.drink_wine,
+        a.like_wine,
+        a.headerimg,
+        a.marry,
+        a.education,
+        a.job,
+        a.industry,
+        a.income,
+        a.cust_level,
+        a.`status`,
+        b.address as baddress,
+        b.city as bcity,
+        b.consignee,
+        b.district as bdistrict,
+        b.goods_addr_id,
+        b.moblie,
+        b.postcode,
+        b.province as bprovince,
+        b.telephone
+        FROM cust_info a, cust_goods_addr b
+        WHERE a.login_account = b.login_account
+    </select>
+
 </mapper>

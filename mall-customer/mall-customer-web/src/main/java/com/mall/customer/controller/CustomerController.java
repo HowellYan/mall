@@ -1,6 +1,7 @@
 package com.mall.customer.controller;
 
 import com.mall.customer.base.CustInfo;
+import com.mall.customer.base.CustInfoGoodsAddr;
 import com.mall.customer.base.Page;
 import com.mall.customer.service.CustomerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class CustomerController {
 
     @ResponseBody
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public List<CustInfo> test(CustInfo custInfo){
-        return customerInfoService.test(custInfo);
+    public List<CustInfoGoodsAddr> test(CustInfoGoodsAddr custInfo){
+        return customerInfoService.test2(custInfo);
     }
 
 }

@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mall.customer.base.CustInfo;
+import com.mall.customer.base.CustInfoGoodsAddr;
 import com.mall.customer.base.Page;
 import com.mall.customer.dao.CustCollectMapper;
 
@@ -51,6 +52,10 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
 
     public List<CustInfo> test(CustInfo custInfo) {
         return custCollectMapper.test(custInfo);
+    }
+
+    public List<CustInfoGoodsAddr> test2(CustInfoGoodsAddr custInfo) {
+        return custCollectMapper.test2();
     }
 
     @Override
