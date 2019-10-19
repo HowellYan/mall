@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+dubbo:
+  application:
+    name: mall-oss-service
+    version: 1.0.0
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    timeout: 6000
+    version: 1.0.0
+    check: true
+    file: ./.dubbo/mall-oss-service_registry
+  scan:
+    base-packages: com.mall.oss
+  consumer:
+    timeout: 6000
+    check: false
+    version: 1.0.0

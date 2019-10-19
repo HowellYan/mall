@@ -3,8 +3,6 @@ package com.mall.customer.service;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
-
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mall.customer.base.CustInfo;
@@ -16,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 
-@Service
+@Service(version = "1.0.0")
 public class CustomerInfoServiceImpl implements CustomerInfoService {
 
     @Resource
