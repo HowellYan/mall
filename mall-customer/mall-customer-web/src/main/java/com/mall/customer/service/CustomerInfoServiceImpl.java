@@ -37,12 +37,29 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
         return custCollectMapper.selectList(queryWrapper);
     }
 
+    public boolean update(CustInfo custInfo) {
+        QueryWrapper<CustInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("realname","A");
+        queryWrapper.like("realname","%a%");
+        return custCollectMapper.update(custInfo, queryWrapper) > 0;
+    }
+
+    public boolean delete(CustInfo custInfo) {
+        QueryWrapper<CustInfo> queryWrapper = new QueryWrapper<>();
+        return custCollectMapper.delete(queryWrapper) > 0;
+    }
+
+    public List<CustInfo> test(CustInfo custInfo) {
+        return custCollectMapper.test(custInfo);
+    }
+
     @Override
-    public Page<CustInfo> getPageList(Page page) {
+    public Page<CustInfo> getPageList(Page page, CustInfo custInfo) {
         PageHelper.startPage(page.getPageNo(), page.getPageSize());// 分页 init ，拦截mybatisplus
         // mybatisplus 处理开始
         QueryWrapper<CustInfo> queryWrapper = new QueryWrapper<>();
-        List<CustInfo> list = custCollectMapper.selectList(queryWrapper);
+//        List<CustInfo> list = custCollectMapper.selectList(queryWrapper);
+        List<CustInfo> list = custCollectMapper.test(custInfo);
         // 分页开始
         PageInfo pageInfo = new PageInfo(list); //拦截 完毕！
 

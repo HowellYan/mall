@@ -10,5 +10,7 @@ public interface CustomerInfoService {
 
     List<CustInfo> getList(CustInfo custInfo);
 
-    Page<CustInfo> getPageList(Page page);
+    Page<CustInfo> getPageList(Page page, CustInfo custInfo);
+
+    List<CustInfo> test(CustInfo custInfo);
 }

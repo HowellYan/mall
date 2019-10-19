@@ -23,8 +23,17 @@ public class CustomerController {
         return customerInfoService.getList(new CustInfo());
     }
 
+    @ResponseBody
     @RequestMapping(value = "/page",method = RequestMethod.POST)
-    public Page<CustInfo> page(@ModelAttribute Page<CustInfo> page) {
-        return customerInfoService.getPageList(page);
+    public Page<CustInfo> page(@ModelAttribute Page<CustInfo> page,
+                               @ModelAttribute CustInfo custInfo) {
+        return customerInfoService.getPageList(page, custInfo);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public List<CustInfo> test(CustInfo custInfo){
+        return customerInfoService.test(custInfo);
+    }
+
 }
