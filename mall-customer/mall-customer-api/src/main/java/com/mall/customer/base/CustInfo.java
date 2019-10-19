@@ -1,12 +1,11 @@
 package com.mall.customer.base;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
-import lombok.NonNull;
 import lombok.ToString;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -16,6 +15,7 @@ import java.util.Date;
 public class CustInfo implements Serializable {
 
   @Id
+  @TableId
   private String loginAccount;
   private String loginPw;
   private String payPw;

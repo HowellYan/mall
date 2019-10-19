@@ -16,4 +16,6 @@ public interface CustomerInfoService {
     List<CustInfo> test(CustInfo custInfo);
 
     List<CustInfoGoodsAddr> test2(CustInfoGoodsAddr custInfo);
+
+    CustInfo getById(String id);
 }

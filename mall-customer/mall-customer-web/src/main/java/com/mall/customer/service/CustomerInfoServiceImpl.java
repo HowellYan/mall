@@ -36,6 +36,10 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
         return custCollectMapper.selectList(queryWrapper);
     }
 
+    public CustInfo getById(String id) {
+        return custCollectMapper.selectById(id);
+    }
+
     public boolean update(CustInfo custInfo) {
         QueryWrapper<CustInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("realname","A");
