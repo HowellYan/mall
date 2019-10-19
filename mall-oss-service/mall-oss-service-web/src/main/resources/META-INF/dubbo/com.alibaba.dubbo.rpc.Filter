@@ -1,0 +1,1 @@
+dubboLogFilter=com.mall.oss.filter.DubboLogFilter

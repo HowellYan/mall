@@ -17,3 +17,4 @@ dubbo:
     timeout: 6000
     check: false
     version: 1.0.0
+    filter: dubboLogFilter

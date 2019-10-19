@@ -9,6 +9,10 @@ import com.mall.customer.base.CustInfo;
 import com.mall.customer.base.CustInfoGoodsAddr;
 import com.mall.customer.base.Page;
 import com.mall.customer.dao.CustCollectMapper;
+import com.mall.customer.handle.GetCustomerOne;
+import com.mall.parent.entitybase.request.CommonRequest;
+import com.mall.parent.entitybase.response.CommonResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,6 +23,9 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
 
     @Resource
     private CustCollectMapper custCollectMapper;
+
+    @Autowired
+    private GetCustomerOne getCustomerOne;
 
     @Override
     public String getString(String name) {
@@ -77,6 +84,10 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
         custInfoPage.setTotalCount(pageInfo.getTotal());
         custInfoPage.setTotalPage(pageInfo.getPages());
         return custInfoPage;
+    }
+
+    public CommonResponse<CustInfo> getOne(CommonRequest<CustInfo> custInfoCommonRequest) {
+        return getCustomerOne.call(custInfoCommonRequest);
     }
 
 }

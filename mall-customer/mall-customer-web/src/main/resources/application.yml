@@ -16,6 +16,8 @@ dubbo:
     file: ./.dubbo/mall_customer_registry
   scan:
     base-packages: com.mall.customer
+  provider:
+    filter: dubboLogFilter
 
 # Mybatis-plus
 mybatis-plus:
