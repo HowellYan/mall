@@ -40,6 +40,7 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
     @Override
     public List<CustInfo> getList(CustInfo custInfo) {
         QueryWrapper<CustInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.orderByDesc("login_account");
         return custCollectMapper.selectList(queryWrapper);
     }
 

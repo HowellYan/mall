@@ -90,6 +90,7 @@ spring:
             column: login_account
             type: SNOWFLAKE
 
+
       default-data-source-name: ds0
     datasource:
       names: ds0,ds1
