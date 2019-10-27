@@ -73,6 +73,20 @@ mybatis-plus:
 
 spring:
   shardingsphere:
+    sharding:
+      tables:
+        cust_info:
+          logic-table: cust_info # 逻辑表
+          actual-data-nodes: ds${0..1}.cust_info  #数据节点, 真实表
+          table-strategy:  # 分表策略
+            inline:
+              sharding-column: login_account
+              algorithm-expression: ds${login_account % 2}.cust_info
+          key-generator:
+            column: login_account
+            type: SNOWFLAKE
+
+      default-data-source-name: ds0
     datasource:
       names: ds0,ds1
       ds0:
@@ -87,15 +101,3 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/luckwine-customer-2
         username: root
         password: 123456
-    config:
-      sharding:
-        props:
-          sql.show: true
-        tables:
-          cust_info:  #cust_info表
-            key-generator-column-name: login_account  #主键
-            actual-data-nodes: ds${0..1}.cust_info  #数据节点
-            database-strategy:  #分库策略
-              inline:
-                sharding-column: login_account
-                algorithm-expression: ds${login_account % 2}
