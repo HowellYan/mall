@@ -22,4 +22,6 @@ public interface CustomerInfoService {
     CustInfo getById(String id);
 
     CommonResponse<CustInfo> getOne(CommonRequest<CustInfo> custInfoCommonRequest );
+
+    List<CustInfo> add(CustInfo custInfo);
 }

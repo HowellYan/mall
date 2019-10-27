@@ -81,7 +81,11 @@ spring:
           table-strategy:  # 分表策略
             inline:
               sharding-column: login_account
-              algorithm-expression: ds${login_account % 2}.cust_info
+              algorithm-expression: cust_info
+          database-strategy: # 分库策略
+            inline:
+              sharding-column: login_account
+              algorithm-expression: ds${login_account % 2}
           key-generator:
             column: login_account
             type: SNOWFLAKE

@@ -90,4 +90,10 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
         return getCustomerOne.call(custInfoCommonRequest);
     }
 
+    public List<CustInfo> add(CustInfo custInfo) {
+        custCollectMapper.insert(custInfo);
+        QueryWrapper<CustInfo> queryWrapper = new QueryWrapper<>();
+        return custCollectMapper.selectList(queryWrapper);
+    }
+
 }

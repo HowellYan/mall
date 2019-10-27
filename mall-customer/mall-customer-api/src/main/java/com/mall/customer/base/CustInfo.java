@@ -16,11 +16,11 @@ public class CustInfo implements Serializable {
 
   @Id
   @TableId
-  private String loginAccount;
+  private long loginAccount;
   private String loginPw;
   private String payPw;
   private String identity;
-  private Date createTime;
+  private Date createTime = new Date();
   private Date updateTime;
   private String nickname;
   private String realname;

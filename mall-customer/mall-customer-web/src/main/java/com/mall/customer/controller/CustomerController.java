@@ -42,4 +42,11 @@ public class CustomerController {
         return customerInfoService.getById(id);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public List<CustInfo> add(@ModelAttribute CustInfo custInfo) {
+        return customerInfoService.add(custInfo);
+    }
+
+
 }

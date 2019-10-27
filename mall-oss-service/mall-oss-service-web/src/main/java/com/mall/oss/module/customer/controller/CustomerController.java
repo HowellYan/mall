@@ -28,7 +28,7 @@ public class CustomerController {
 
     @ResponseBody
     @RequestMapping(value = "/getOne/{id}",method = RequestMethod.GET)
-    public CommonResponse<CustInfo> getOne(@PathVariable("id") String id) {
+    public CommonResponse<CustInfo> getOne(@PathVariable("id") long id) {
         CommonRequest<CustInfo> request = new CommonRequest<>();
         CustInfo custInfo = new CustInfo();
         custInfo.setLoginAccount(id);
