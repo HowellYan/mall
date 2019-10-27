@@ -94,8 +94,12 @@ spring:
         tables:
           cust_info:  #cust_info表
             key-generator-column-name: login_account  #主键
-            actual-data-nodes: ds${0..1}.cust_info  #数据节点
+            actual-data-nodes: ds${0..1}.cust_info${0..1}  #数据节点
             database-strategy:  #分库策略
               inline:
                 sharding-column: login_account
                 algorithm-expression: ds${login_account % 2}
+            table-strategy:  #分表策略
+              inline:
+                shardingColumn: login_account
+                algorithm-expression: cust_info${login_account % 2}

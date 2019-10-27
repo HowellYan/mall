@@ -6,6 +6,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.activation.DataSource;
+import javax.annotation.Resource;
+
 @SpringBootApplication
 @EnableDubbo
 @MapperScan(basePackages = {"com.mall.customer.dao"})
