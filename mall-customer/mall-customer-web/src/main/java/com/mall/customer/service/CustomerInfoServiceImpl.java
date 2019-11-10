@@ -44,7 +44,7 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
         return custCollectMapper.selectList(queryWrapper);
     }
 
-    public CustInfo getById(String id) {
+    public CustInfo getById(long id) {
         return custCollectMapper.selectById(id);
     }
 

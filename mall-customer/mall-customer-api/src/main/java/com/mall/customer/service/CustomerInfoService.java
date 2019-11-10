@@ -19,7 +19,7 @@ public interface CustomerInfoService {
 
     List<CustInfoGoodsAddr> test2(CustInfoGoodsAddr custInfo);
 
-    CustInfo getById(String id);
+    CustInfo getById(long id);
 
     CommonResponse<CustInfo> getOne(CommonRequest<CustInfo> custInfoCommonRequest );
 

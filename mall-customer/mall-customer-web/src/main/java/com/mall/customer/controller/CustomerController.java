@@ -38,7 +38,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/get/{id}")
-    public CustInfo getById(@PathVariable("id")  String id){
+    public CustInfo getById(@PathVariable("id")  long id){
         return customerInfoService.getById(id);
     }
 
