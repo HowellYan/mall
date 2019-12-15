@@ -2,8 +2,8 @@ package com.mall.parent.entitybase.annotation;
 
 import java.lang.annotation.*;
 
-@Documented
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE})
+@Documented
 public @interface CreatedBy {
 }
