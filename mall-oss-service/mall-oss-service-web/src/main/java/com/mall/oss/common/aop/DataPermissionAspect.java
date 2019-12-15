@@ -1,6 +1,7 @@
 package com.mall.oss.common.aop;
 
 import com.alibaba.fastjson.JSONObject;
+import com.mall.parent.entitybase.annotation.GroupBy;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -11,6 +12,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.util.Date;
 
 @Aspect
@@ -36,9 +38,18 @@ public class DataPermissionAspect {
     }
 
     public void getObjectClass(Object object) {
-        log.info("对象Parameter数量" + object.getClass().getTypeParameters().length);
         if(!isPrimitive(object)) {
             log.info(object.getClass().getName());
+            Field[] fields = object.getClass().getDeclaredFields();
+            for (Field field : fields) {
+                if (field.getAnnotations().length > 0) {
+                    log.info(field.getType().getTypeName());
+                    GroupBy groupBy = field.getAnnotation(GroupBy.class);
+                    if(groupBy != null ) {
+                        log.info(field.getName());
+                    }
+                }
+            }
         }
     }
 

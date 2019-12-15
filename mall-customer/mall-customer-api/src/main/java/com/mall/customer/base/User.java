@@ -1,6 +1,8 @@
 package com.mall.customer.base;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.mall.parent.entitybase.annotation.GroupBy;
+import com.mall.parent.entitybase.annotation.Permission;
 import com.mall.parent.entitybase.base.BaseEntity;
 import com.mall.parent.entitybase.common.CommonConstant;
 import lombok.Data;
@@ -72,4 +74,10 @@ public class User extends BaseEntity {
 //    @TableField(exist=false)
 //    @ApiModelProperty(value = "用户拥有的权限")
 //    private List<String> permissions;
+
+    @Permission
+    private List<String> permission;
+
+    @GroupBy
+    private String groupBy;
 }

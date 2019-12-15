@@ -1,11 +1,14 @@
 package com.mall.parent.entitybase.request;
 
+import com.mall.parent.entitybase.annotation.GroupBy;
+import com.mall.parent.entitybase.annotation.Permission;
 import lombok.Data;
 import lombok.ToString;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 通用请求父类的封装
@@ -44,5 +47,12 @@ public class CommonRequest<T> implements Serializable {
      * 操作级别
      */
     private String operLevel;
+
+
+    @Permission
+    private List<String> permission;
+
+    @GroupBy
+    private String groupBy;
 
 }
