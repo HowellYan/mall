@@ -6,6 +6,7 @@ import com.mall.oss.module.entity.EsLog;
 import com.mall.oss.module.entity.EsUser;
 import org.apache.curator.shaded.com.google.common.collect.Lists;
 import org.elasticsearch.common.util.iterable.Iterables;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,14 @@ public class EsUserService {
         return Lists.newArrayList(esUserDao.saveAll(esUserList));
     }
 
-    public Page<EsUser> getList() {
-        QueryBuilder queryBuilder = QueryBuilders.boolQuery(); // DSL
+    public Page<EsUser> getList(EsUser esUser) {
+        BoolQueryBuilder queryBuilder = QueryBuilders.boolQuery(); // DSL
+
+        if(esUser.getUsername() != null) {
+            QueryBuilder queryBuilderUserName = QueryBuilders.matchQuery("username",esUser.getUsername());
+            queryBuilder.must(queryBuilderUserName);
+        }
+
         NativeSearchQuery searchQuery = new NativeSearchQuery(queryBuilder);
         return esUserDao.search(searchQuery);
     }

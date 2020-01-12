@@ -17,8 +17,8 @@ public class EsUserController {
 
     @ResponseBody
     @RequestMapping(value = "/getUserList",method = RequestMethod.GET)
-    public Page<EsUser> getLog() {
-        return esUserService.getList();
+    public Page<EsUser> getLog(@RequestBody EsUser esUser) {
+        return esUserService.getList(esUser);
     }
 
     @ResponseBody
