@@ -18,3 +18,11 @@ dubbo:
     check: false
     version: 1.0.0
     filter: dubboLogFilter
+spring:
+  data:
+    elasticsearch:
+      cluster-name: docker-cluster
+      cluster-nodes: 127.0.0.1:9300
+      # 未使用到ES 关闭其持久化存储
+      repositories:
+        enabled: false
